@@ -2,9 +2,13 @@ var randomWords = require('random-words');
 
 exports.handler = async function (event, context) {
 
-    const num = parseInt(event.queryStringParameters.num);
+    let num = parseInt(event.queryStringParameters.num || 1);
+    if (num > 20) {
+        num = 20;
+    }
+
     const words = randomWords({
-        exactly: 5,
+        exactly: num,
         join: ' '
     });
 
