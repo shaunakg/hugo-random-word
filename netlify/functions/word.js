@@ -1,15 +1,16 @@
-var fs = require("fs");
+var randomWords = require('random-words');
 
 exports.handler = async function (event, context) {
 
-    let words = fs.readFileSync("words.txt")
-    words = words.split("\n");
-
-    const randWord = words[Math.floor(Math.random() * words.length)];
+    const num = parseInt(event.queryStringParameters.num);
+    const words = randomWords({
+        exactly: 5,
+        join: ' '
+    });
 
     return {
         statusCode: 200,
-        body: randWord
+        body: words
     }
-
+    
 }

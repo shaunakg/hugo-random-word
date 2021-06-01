@@ -32,9 +32,16 @@
 
     <script>
 
-        fetch("/.netlify/functions/word").then(r => r.text()).then(t => {
+        const paths = location.pathname.split("/")
+        try {
+            const num = paths[1] || 1
+        } catch(e) {
+            const num = 1;
+        }
+
+        fetch("/.netlify/functions/word?num=" + num).then(r => r.text()).then(t => {
             document.getElementById("w").innerText = t;
-        })
+        });
 
     </script>
 
