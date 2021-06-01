@@ -31,6 +31,18 @@
             text-align: center;
         }
 
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 10px 0;
+            
+            border: 2px solid #EEE;
+            text-decoration: none;
+            color: black;
+
+            border-radius: 2px;
+        }
+
     </style>
 </head>
 
@@ -38,6 +50,7 @@
 
     <h1 id=w>Loading...</h1>
     <p>
+        <a class=btn href="#" onclick="document.location.reload()">Another</a><br/><br/>
         Add <code>/[number]</code> to the end to get a certain amount of words. For example, <a href="/5">five words</a>.
     </p>
 
